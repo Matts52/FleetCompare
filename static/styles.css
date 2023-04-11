@@ -1,0 +1,93 @@
+/* styles.css */
+
+/* Add CSS styles for positioning and layout */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-color: #f8f8f8;
+    min-height: 100vh; /* Set a minimum height of 100vh for the body */
+
+}
+
+h1 {
+    margin-top: 0;
+    padding: 20px;
+    background-color: #80bdfd;
+    color: #fff;
+    font-size: 24px;
+    text-align: center; /* Center align text */
+}
+
+.airlines-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0px 5px; /* Update gap */
+    height: 70%;
+    padding: 0px 5px; /* Update padding */
+    align-items: center;
+    justify-items: center;
+}
+
+.airline {
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+    width: 100%;
+    text-align: center;
+}
+
+.airline h2 {
+    margin-top: 0;
+    color: #80bdfd;
+    font-size: 20px;
+}
+
+.airline p {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.airline input[type="text"] {
+    margin: 0 auto; /* Add margin: 0 auto; to center the input boxes horizontally */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.chart {
+    height: 90%;
+}
+
+/* Add CSS styles for the footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Push the footer to the bottom */
+    bottom: 0; /* Position the footer at the bottom of the body */
+}
+
+footer a {
+    color: #80bdfd;
+    text-decoration: none;
+}
+       
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    color: #999;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+

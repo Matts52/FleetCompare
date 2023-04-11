@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <title>Airline Charts</title>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function cb1(selection) {
+            $.getJSON({
+                url: "/callback", data: { 'data': selection }, success: function (result) {
+                    Plotly.newPlot('chart1', result, {staticPlot: true});
+                }
+            });
+        }
+
+        function cb2(selection) {
+            $.getJSON({
+                url: "/callback", data: { 'data': selection }, success: function (result) {
+                    Plotly.newPlot('chart2', result, {staticPlot: true});
+                }
+            });
+        }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../static/styles.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    
+</head>
+
+<body style="font-family: 'Roboto', sans-serif;">
+
+    <h1>Active ICAO Engine Composition Comparison <a href="https://github.com/Matts52/FleetCompare"><img src="../static/github-white.svg" alt="Documentation" width="20" height="20"></a></h1>
+
+    <div class="airlines-container">
+        <div class="airline">
+            <h2>Airline #1</h2>
+            <p>Make sure you give the correct ICAO airline code</p>
+            <input type="text" id="fname" name="fname" onchange="cb1(this.value)">
+            <div id="chart1" class="chart"></div>
+        </div>
+
+        <div class="airline">
+            <h2>Airline #2</h2>
+            <p>Make sure you give the correct ICAO airline code</p>
+            <input type="text" id="fname" name="fname" onchange="cb2(this.value)">
+            <div id="chart2" class="chart"></div>
+        </div>
+    </div>
+
+
+</body>
+
+<script>
+    d1 = {{ graphJSON1 | safe }};
+    d2 = {{ graphJSON2 | safe }}; 
+    //d.config={staticPlot: true};
+    Plotly.newPlot('chart1', d1, {});
+    Plotly.newPlot('chart2', d2, {});
+    
+</script>
+</html>
