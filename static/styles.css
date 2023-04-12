@@ -47,6 +47,10 @@ h1 {
     font-size: 20px;
 }
 
+.airline a {
+    color: #80bdfd;
+}
+
 .airline p {
     margin-bottom: 10px;
     font-size: 14px;
