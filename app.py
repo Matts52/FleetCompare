@@ -28,7 +28,7 @@ def index():
 def gm(airline='UAL'):
     #load instance of the API and get flights
     fr_api = FlightRadar24API()
-    flights = fr_api.get_flights(airline=airline)
+    flights = fr_api.get_flights(airline=airline.upper())
 
     #get counts of each of the models in the airline
     model_counts = {}
@@ -47,12 +47,12 @@ def gm(airline='UAL'):
     #get the corresponging airline
     airline_info = pd.DataFrame(fr_api.get_airlines())
     try:
-        airline_name = airline_info[airline_info["ICAO"] == airline]["Name"].item()
+        airline_name = airline_info[airline_info["ICAO"] == airline.upper()]["Name"].item()
     except:
         airline_name = "Airline Not Found"
 
     #produce the figure
-    fig = px.bar(lines_df, x="ICAO", y="Count", title=airline + " - " + airline_name, 
+    fig = px.bar(lines_df, x="ICAO", y="Count", title=airline.upper() + " - " + airline_name, 
                  color="Count", color_continuous_scale=['#0d6298', '#abdbe3'],
                                   labels={
                      "ICAO": "Aircraft Model ICAO Code",
